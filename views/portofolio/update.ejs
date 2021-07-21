@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+    <%- include('../partials/header'); %>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Content -->
+        <div class="container">
+            <h1>Update Portofolio</h1>
+            <form action="/portofolio/update/<%= portofolio.id %>" method="POST">
+                <div class="row mb-3">
+                    <label for="title" class="col-sm-2 col-form-label">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="title" class="form-control" value="<%= portofolio.title %>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="description" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" name="description" class="form-control"><%= portofolio.description %></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="tags" class="col-sm-2 col-form-label">Tags</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="tags" class="form-control" value="<%= portofolio.tags %>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="repository" class="col-sm-2 col-form-label">Repository URL</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="repository" class="form-control" value="<%= portofolio.repository %>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="image" class="col-sm-2 col-form-label">Image</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="image" class="form-control" value="<%= portofolio.image %>">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

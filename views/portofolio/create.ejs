@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+    <%- include('../partials/header'); %>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Content -->
+        <h1>Add Portofolio</h1>
+        <div class="container">
+            <form action="/portofolio/create" method="POST">
+                <div class="row mb-3">
+                    <label for="title" class="col-sm-2 col-form-label">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="title" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="description" class="col-sm-2 col-form-label">Description</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" name="description" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="tags" class="col-sm-2 col-form-label">Tags</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="tags" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="repository" class="col-sm-2 col-form-label">Repository URL</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="repository" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="image" class="col-sm-2 col-form-label">Image</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="image" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+    <%- include('../partials/header'); %>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Content -->
+        <div class="container">
+            <h1>Portofolio</h1>
+            <a href="/portofolio/update/<%= portofolio.id %>" class="btn btn-primary">Edit Portofolio</a>
+            <% if (portofolio.length !== 0) {%>
+                <div class="my-3">
+                    <img src="<%= portofolio.image %>" alt="" class="w-50">
+                    <h3><%= portofolio.title %></h3>
+                    <p><%= portofolio.description %></p>
+                    <p><%= portofolio.tags %></p>
+                    <a href="<%= portofolio.repository %>" class="btn btn-primary">Repository URL</a>
+                    <p class="text-muted"><%= portofolio.updatedAt %></p>
+                </div><br>
+            <% } else { %>
+                <div><p>Portofolio tidak ada</p></div>
+            <% } %>
+        </div>
+
+        <!-- Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

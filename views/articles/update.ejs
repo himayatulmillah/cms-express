@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+    <%- include('../partials/header'); %>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Content -->
+        <div class="container">
+            <h1>Update Article</h1>
+            <form action="/article/update/<%= article.id %>" method="POST">
+                <div class="row mb-3">
+                    <label for="title" class="col-sm-2 col-form-label">Title</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="title" class="form-control" value="<%= article.title %>">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="body" class="col-sm-2 col-form-label">Body</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" name="body" class="form-control"><%= article.body %></textarea>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="approved" class="col-sm-2 col-form-label">Approved</label>
+                    <div class="col-sm-10">
+                        <input type="text" name="approved" class="form-control" value="<%= article.approved %>">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

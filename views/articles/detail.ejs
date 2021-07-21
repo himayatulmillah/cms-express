@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+    <%- include('../partials/header'); %>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Content -->
+        <div class="container">
+            <h1>Detail Article</h1>
+            <a href="/article/update/<%= article.id %>" class="btn btn-primary">Edit Article</a>
+            <% if (article.length !== 0) {%>
+                <div class="my-3">
+                    <h3><%= article.title %></h3>
+                    <p><%= article.body %></p>
+                    <p class="text-muted"><%= article.updatedAt %></p>
+                </div><br>
+            <% } else { %>
+                <div><p>Article tidak ada</p></div>
+            <% } %>
+        </div>
+
+        <!-- Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

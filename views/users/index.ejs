@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Header -->
+    <%- include('../partials/header'); %>
+    <body>
+        <!-- Navbar -->
+        <%- include('../partials/navbar'); %>
+
+        <!-- Content -->
+        <div class="container">
+            <h1>User List</h1>
+            <a href="/user/create" class="btn btn-primary">Add User</a>
+            <% if (user.length !== 0) {%>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Action</th>
+                    </thead>
+                    <tbody>
+                    <% user.forEach(i => { %>
+                        <tr>
+                            <td><%= i.username %></td>
+                            <td>Role</td>
+                            <td>
+                                <a href="/user/edit/<%= i.id %>" class="btn btn-warning" id="edit-user">Edit</a>
+                                <button class="btn btn-danger" id="delete-user" data-id="<%= i.id %>">Delete</button>
+                            </td>
+                        </tr>
+                    <% }) %>
+                    </tbody>
+                </table>
+            <% } else { %>
+                <div><p>Tidak ada user</p></div>
+            <% } %>
+        </div>
+
+        <!-- JQuery -->
+        <script>
+            $(function(){
+                $('body').on('click', '#delete-user', function(e){
+                    $target = $(e.target);
+                    const id = $target.attr('data-id');
+                    $.ajax({
+                        type:'DELETE',
+                        url:'/user/delete/'+id,
+                        success: function(response) {
+                            alert('Deleting User');
+                            window.location.href='/user';
+                        },
+                        error: function(err) {
+                            console.log(err)
+                        }
+                    })
+                })
+            })
+        </script>
+
+        <!-- Footer -->
+        <%- include('../partials/footer'); %>
+    </body>
+</html>
