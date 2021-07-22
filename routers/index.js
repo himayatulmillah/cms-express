@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const homeRouter = require('./homeRouter')
+const defaultController = require('../controllers/defaultController')
 const authRouter = require('./autRouter')
 const portofolioRouter = require('./portofolioRouter')
 const articleRouter = require('./articleRouter')
@@ -11,5 +12,7 @@ router.use('/', authRouter)
 router.use('/portofolio', restrict, portofolioRouter)
 router.use('/article', restrict, articleRouter)
 router.use('/user', restrict, userRouter)
+
+router.use(defaultController.notFound)
 
 module.exports = router
