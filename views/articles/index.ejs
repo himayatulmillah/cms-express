@@ -7,12 +7,13 @@
         <%- include('../partials/navbar'); %>
 
         <!-- Content -->
-        <div class="container">
+        <div class="container mt-5">
             <h1>Article</h1>
             <a href="/article/create" class="btn btn-primary">Add Article</a>
+            <br><br>
             <% if (article.length !== 0) {%>
                 <table class="table table-striped table-hover">
-                    <thead>
+                    <thead class="table-dark">
                         <th>Title</th>
                         <th>Body</th>
                         <th>Approved</th>
@@ -25,13 +26,25 @@
                         <tr>
                             <td><%= i.title %></td>
                             <td><%= i.body %></td>
-                            <td><%= i.approved %></td>
+                            <td>
+                                <% if (i.approved != true) { %>
+                                    <i class="bi bi-x-lg" style="color: red;"></i>
+                                <% } else { %>
+                                    <i class="bi bi-check-lg" style="color: green;"></i>
+                                <% } %>
+                            </td>
                             <td><%= i.createdAt %></td>
                             <td><%= i.updatedAt %></td>
                             <td>
-                                <a href="/article/<%= i.id %>" class="btn btn-primary">Lihat</a>
-                                <a href="/article/update/<%= i.id %>" class="btn btn-warning" id="edit-portofolio">Edit</a>
-                                <button class="btn btn-danger" id="delete-article" data-id="<%= i.id %>">Delete</button>
+                                <a href="/article/<%= i.id %>" class="btn btn-primary">
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+                                <a href="/article/update/<%= i.id %>" class="btn btn-warning" id="edit-portofolio">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                                <button class="btn btn-danger" id="delete-article" data-id="<%= i.id %>">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
                             </td>
                         </tr>
                     <% }) %>

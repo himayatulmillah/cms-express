@@ -2,10 +2,11 @@
 <html lang="en">
     <!-- Header -->
     <%- include('../partials/header'); %>
-    <body>
+    <body class="bg-dark">
         <!-- Content -->
-        <div class="container">
-            <h1>Log In</h1>
+        <div class="container mt-5 text-center card py-3" style="width: 100%; max-width:330px">
+            <h1 class="mt-3">Log In</h1>
+            <br>
             <form action="/login" method="POST">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" name="username" id="username" placeholder="Username">
@@ -15,7 +16,8 @@
                     <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                     <label for="password">Password</label>
                   </div>
-                  <button type="submit" class="btn btn-primary">Log In</button>
+                  <br>
+                  <button type="submit" class="btn btn-lg btn-primary w-100">Log In</button>
             </form>
             <br>
             <hr>

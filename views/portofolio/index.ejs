@@ -7,12 +7,13 @@
         <%- include('../partials/navbar'); %>
 
         <!-- Content -->
-        <div class="container">
+        <div class="container mt-5">
             <h1>Portofolio</h1>
             <a href="/portofolio/create" class="btn btn-primary">Add Portofolio</a>
+            <br><br>
             <% if (portofolio.length !== 0) {%>
                 <table class="table table-striped table-hover">
-                    <thead>
+                    <thead class="table-dark">
                         <th>Title</th>
                         <th>Description</th>
                         <th>Tags</th>
@@ -29,9 +30,15 @@
                             <td><a href="<%= i.repository %>"><%= i.repository %></a></td>
                             <td><img src="<%= i.image %>" alt="" style="max-width: 100px;"></td>
                             <td>
-                                <a href="/portofolio/<%= i.id %>" class="btn btn-primary">Lihat</a>
-                                <a href="/portofolio/update/<%= i.id %>" class="btn btn-warning" id="edit-portofolio">Edit</a>
-                                <button class="btn btn-danger" id="delete-portofolio" data-id="<%= i.id %>">Delete</button>
+                                <a href="/portofolio/<%= i.id %>" class="btn btn-primary">
+                                    <i class="bi bi-eye-fill"></i>
+                                </a>
+                                <a href="/portofolio/update/<%= i.id %>" class="btn btn-warning" id="edit-portofolio">
+                                    <i class="bi bi-pencil-fill"></i>
+                                </a>
+                                <button class="btn btn-danger" id="delete-portofolio" data-id="<%= i.id %>">
+                                    <i class="bi bi-trash-fill"></i>
+                                </button>
                             </td>
                         </tr>
                     <% }) %>
