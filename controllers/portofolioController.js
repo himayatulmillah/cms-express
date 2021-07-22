@@ -1,9 +1,14 @@
 const { Portofolio } = require('../models')
+const moment = require('moment')
 
 module.exports = {
     index: (req, res) => {
         Portofolio.findAll({
         }).then(portofolio => {
+            portofolio = portofolio.map(i => {
+                i.fromNow = moment(i.createdAt).fromNow()
+                return i
+            })
             res.render('./portofolio/index', {portofolio})
         })
     },

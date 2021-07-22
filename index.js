@@ -6,6 +6,8 @@ const $ = require( "jquery" )( window );
 const app = express()
 const port = 3000
 
+app.use('/public', express.static(process.cwd() + '/public'));
+
 const favicon = require('serve-favicon')
 const path = require('path')
 app.use(favicon(path.join(__dirname, 'public', 'img', 'icon.ico')))

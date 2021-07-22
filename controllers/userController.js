@@ -1,4 +1,5 @@
 const { User } = require('../models')
+const bycrpt = require('bcrypt')
 
 function format (user) {
     const { id, username } = user
@@ -16,8 +17,29 @@ module.exports = {
             res.render('./users/index', {user})
         })
     },
-    update: (req, res) => {},
-    doUpdate: (req, res) => {},
+    update: (req, res) => {
+        const userId = req.params.id
+        
+        User.findOne({ 
+            where: { id: userId }
+        }).then(user => {
+            res.render('./users/update', {user})
+        })
+    },
+    doUpdate: (req, res) => {
+        const userId = req.params.id
+        const {username, password} = req.body
+        const encryptedPassword = bycrpt.hashSync(password, 10)
+        const query = { where: { id: userId } }
+        User.update({
+            username,
+            password: encryptedPassword
+        }, query).then(user => {
+            return res.redirect('/user')
+        }).catch(err => {
+            return res.redirect('/user/update/' + userId)
+        }) 
+    },
     doDelete: (req, res) => {
         const userId = req.params.id
 

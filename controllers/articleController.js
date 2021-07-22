@@ -1,9 +1,14 @@
 const { Articles } = require('../models')
+const moment = require('moment')
 
 module.exports = {
     index: (req, res) => {
         Articles.findAll({
         }).then(article => {
+            article = article.map(i => {
+                i.fromNow = moment(i.createdAt).fromNow()
+                return i
+            })
             res.render('./articles/index', {article})
         })
     },

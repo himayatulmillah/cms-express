@@ -29,7 +29,7 @@
                                 <td><%= i.createdAt.toDateString() + " " + i.createdAt.toLocaleTimeString() %></td>
                                 <td><%= i.updatedAt.toDateString() + " " + i.updatedAt.toLocaleTimeString() %></td>
                                 <td>
-                                    <a href="/user/edit/<%= i.id %>" class="btn btn-warning" id="edit-user">
+                                    <a href="/user/update/<%= i.id %>" class="btn btn-warning" id="edit-user">
                                         <i class="bi bi-pencil-fill"></i>
                                     </a>
                                     <button class="btn btn-danger" id="delete-user" data-id="<%= i.id %>">

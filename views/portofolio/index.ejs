@@ -20,6 +20,7 @@
                             <th>Tags</th>
                             <th>Repository</th>
                             <th>Image</th>
+                            <th>Last Modified</th>
                             <th>Action</th>
                         </thead>
                         <tbody>
@@ -30,6 +31,7 @@
                                 <td><%= i.tags %></td>
                                 <td><a href="<%= i.repository %>"><%= i.repository %></a></td>
                                 <td><img src="<%= i.image %>" alt="" style="max-width: 100px;"></td>
+                                <td><%= i.updatedAt.toDateString() + " " + i.updatedAt.toLocaleTimeString() %></td>
                                 <td>
                                     <a href="/portofolio/<%= i.id %>" class="btn btn-primary">
                                         <i class="bi bi-eye-fill"></i>
