@@ -14,7 +14,7 @@
                 <div class="my-3">
                     <h3><%= article.title %></h3>
                     <p><%= article.body %></p>
-                    <p class="text-muted"><%= article.updatedAt %></p>
+                    <p class="text-muted">Last modified: <%= article.updatedAt.toDateString() + " " + article.updatedAt.toLocaleTimeString() %></p>
                 </div><br>
             <% } else { %>
                 <div><p>Article tidak ada</p></div>

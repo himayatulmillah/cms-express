@@ -12,38 +12,40 @@
             <a href="/portofolio/create" class="btn btn-primary">Add Portofolio</a>
             <br><br>
             <% if (portofolio.length !== 0) {%>
-                <table class="table table-striped table-hover">
-                    <thead class="table-dark">
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Tags</th>
-                        <th>Repository</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </thead>
-                    <tbody>
-                    <% portofolio.forEach(i => { %>
-                        <tr>
-                            <td><%= i.title %></td>
-                            <td><%= i.description %></td>
-                            <td><%= i.tags %></td>
-                            <td><a href="<%= i.repository %>"><%= i.repository %></a></td>
-                            <td><img src="<%= i.image %>" alt="" style="max-width: 100px;"></td>
-                            <td>
-                                <a href="/portofolio/<%= i.id %>" class="btn btn-primary">
-                                    <i class="bi bi-eye-fill"></i>
-                                </a>
-                                <a href="/portofolio/update/<%= i.id %>" class="btn btn-warning" id="edit-portofolio">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </a>
-                                <button class="btn btn-danger" id="delete-portofolio" data-id="<%= i.id %>">
-                                    <i class="bi bi-trash-fill"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    <% }) %>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Tags</th>
+                            <th>Repository</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                        </thead>
+                        <tbody>
+                        <% portofolio.forEach(i => { %>
+                            <tr>
+                                <td><%= i.title %></td>
+                                <td><%= i.description %></td>
+                                <td><%= i.tags %></td>
+                                <td><a href="<%= i.repository %>"><%= i.repository %></a></td>
+                                <td><img src="<%= i.image %>" alt="" style="max-width: 100px;"></td>
+                                <td>
+                                    <a href="/portofolio/<%= i.id %>" class="btn btn-primary">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </a>
+                                    <a href="/portofolio/update/<%= i.id %>" class="btn btn-warning" id="edit-portofolio">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </a>
+                                    <button class="btn btn-danger" id="delete-portofolio" data-id="<%= i.id %>">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <% }) %>
+                        </tbody>
+                    </table>
+                </div>
             <% } else { %>
                 <div><p>Belum ada portofolio</p></div>
             <% } %>

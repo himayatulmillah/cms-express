@@ -17,7 +17,7 @@
                     <p><%= portofolio.description %></p>
                     <p><%= portofolio.tags %></p>
                     <a href="<%= portofolio.repository %>" class="btn btn-primary">Repository URL</a>
-                    <p class="text-muted"><%= portofolio.updatedAt %></p>
+                    <p class="text-muted">Last modified: <%= portofolio.updatedAt.toDateString() + " " + portofolio.updatedAt.toLocaleTimeString() %></p>
                 </div><br>
             <% } else { %>
                 <div><p>Portofolio tidak ada</p></div>
