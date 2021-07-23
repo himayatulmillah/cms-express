@@ -17,6 +17,24 @@ module.exports = {
             res.render('./users/index', {user})
         })
     },
+    create: (req, res) => {
+        res.render('./users/create')
+    },
+    doCreate: (async(req, res) => {
+        try {
+            const {username, password} = req.body
+            const encryptedPassword = bycrpt.hashSync(password, 10)
+            const user = await User.create({
+                username,
+                password: encryptedPassword
+            })
+            return res.redirect('/user')
+        }
+        catch (err) {
+            console.log(err)
+            return res.redirect('/user/create')
+        }
+    }),
     update: (req, res) => {
         const userId = req.params.id
         

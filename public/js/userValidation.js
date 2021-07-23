@@ -94,7 +94,7 @@ $(function() {
 
         // send email function if form is valid
         if (isFormValid) {
-            alert("User updated!");
+            alert("Success!");
         } else {
             // prevent the form from submitting
             e.preventDefault();

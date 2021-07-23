@@ -46,6 +46,8 @@ module.exports = {
 
             const userLogin = format(user)
             res.cookie('token', userLogin.accessToken, {httpOnly: true})
+            res.cookie('username', userLogin.username)
+            res.cookie('id', userLogin.id)
             // return res.json(userLogin)
             return res.redirect('/portofolio')
         }
